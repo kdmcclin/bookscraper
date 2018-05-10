@@ -5,6 +5,8 @@ require 'nokogiri'
 url = "https://www.packtpub.com/packt/offers/free-learning"
 html = open(url, 'User-Agent' => "Ruby/#{RUBY_VERSION}")
 
+`echo #{url} | pbcopy` #on MacOS, copies the url to the clipboard for easy sharing
+
 doc = Nokogiri::HTML(html)
 
 title = doc.css('.dotd-title').text.strip
